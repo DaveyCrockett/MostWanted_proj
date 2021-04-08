@@ -21,6 +21,19 @@ function searchByName(){
     }
 }
 
+function searchByGender(){
+    // Grabbing the values from our nameForm form and inputs.
+    let genderInput = document.forms['people']['gender'].value;
+
+    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
+    let filteredGender = people.filter(function () {
+        if(person.gender === genderInput){
+            return true;
+        } else{
+            return false;
+        }
+});
+
 function validateNameForm(){
     let valid = document.forms["nameForm"]["fname"].value;
     let lastValid = document.forms["nameForm"]["lname"].value;
@@ -31,25 +44,6 @@ function validateNameForm(){
     if(lastValid == ""){
         alert("Last Name needs to be filled");
         return false;
-    }
-}
-
-function filter(){
-    let input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("filter")
-    filter = input.value.toUpperCase();
-    table = document.getElementById("people");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else{
-                tr[i].style.display = "none"
-            }
-        }
     }
 }
 
