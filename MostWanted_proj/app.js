@@ -34,3 +34,12 @@ function validateNameForm(){
     }
 }
 
+/* function pullFullName(){
+    let fname = people.firstName;
+    let lname = people.lastName;
+    console.log(fname);
+    console.log(lname);
+    
+}
+
+pullFullName();*/
