@@ -43,3 +43,20 @@ function validateNameForm(){
 }
 
 pullFullName();*/
+
+let body = '<tbody>'
+for (let i = 0; i < people.length; i++) {
+    body += '<tr>';
+    body += '<td>' + people[i].firstName + '</td>';
+    body += '<td>' + people[i].lastName + '</td>';
+    body += '<td>' + people[i].gender + '</td>';
+    body += '<td>' + people[i].height + '</td>';
+    body += '<td>' + people[i].weight + '</td>';
+    body += '<td>' + people[i].eyeColor + '</td>';
+    body += '<td>' + people[i].occupation + '</td>';
+    body += '<td>' + people[i].parents + '</td>';
+    body += '<td>' + people[i].currentSpouse + '</td>';
+    body += '</tr>';
+}
+body +='</tbody>';
+    document.getElementById('data').innerHTML = body;
