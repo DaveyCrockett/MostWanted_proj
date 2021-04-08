@@ -1,5 +1,5 @@
 'use strict';
-
+//use this for category
 function searchByName(){
     // Grabbing the values from our nameForm form and inputs.
     let firstNameInput = document.forms['nameForm']['fname'].value;
@@ -34,25 +34,24 @@ function validateNameForm(){
     }
 }
 
-function filter(){
-    let input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("filter")
+function fltr(){
+    let input, filter, table, tr, i, tds;
+    input = document.getElementById("filter");
     filter = input.value.toUpperCase();
     table = document.getElementById("people");
     tr = table.getElementsByTagName("tr");
+    tds = table.getElementsByTagName("td");
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else{
-                tr[i].style.display = "none"
-            }
+        let firstCol = tds[0].textContent.toUpperCase();
+        let secondCol = tds[1].textContent.toUpperCase();
+        if (firstCol.indexOf(filter) > -1 || secondCol.indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        }else{
+            tr[i].style.display = "none";
         }
-    }
+            
+        }
 }
-
 
 let body = '<tbody>'
 for (let i = 0; i < people.length; i++) {
