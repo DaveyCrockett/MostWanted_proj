@@ -20,3 +20,16 @@ function searchByName(){
         console.log('Sorry, looks like there is no one with that name.');
     }
 }
+
+function validateNameForm(){
+    let valid = document.forms["nameForm"]["fname"].value;
+    let lastValid = document.forms["nameForm"]["lname"].value;
+    if(valid == ""){
+        alert("First Name needs to be filled");
+        return false;
+    }
+    if(lastValid == ""){
+        alert("Last Name needs to be filled");
+        return false;
+    }
+}
