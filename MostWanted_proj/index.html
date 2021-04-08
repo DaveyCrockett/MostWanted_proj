@@ -5,18 +5,15 @@
     <title>devCodeCamp &middot; Most Wanted</title>
   </head>
   <body>
-<<<<<<< HEAD
     <form id="nameForm" onsubmit="return validateNameForm()">
-=======
-    <form id="nameForm" onsubmit= "return validateNameForm()">
->>>>>>> e73faa422a11fec2d260a5fbcd474116133f5b98
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="fname" value="Joy"><br>
         <label for="lname">Last name:</label><br>
         <input type="text" id="lname" name="lname" value="Madden"><br><br>
         <input type="submit" onclick="searchByName()" value="Submit">
     </form> 
-    <table>
+    <input type="text" id="filter" onkeyup="filter()" placeholder="Search by first name">
+    <table id="people">
       <thead>
       <tr>
         <th>First Name</th>
