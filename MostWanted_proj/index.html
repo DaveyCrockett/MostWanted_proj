@@ -5,14 +5,11 @@
     <title>devCodeCamp &middot; Most Wanted</title>
   </head>
   <body>
-    <form id="nameForm" onsubmit="return validateNameForm()">
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname" value="Joy"><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" value="Madden"><br><br>
-        <input type="submit" onclick="searchByName()" value="Submit">
-    </form> 
-    <input type="text" id="filter" onkeyup="fltr()" placeholder="Search by first name">
+    <form id="searchBox" onkeyup="searchByName();searchByGender();searchByDOB()">
+      <input type="text" id="firstName"  placeholder="Search by first name">
+      <input type="text" id="gender" placeholder="Search by Gender">
+      <input type="text" id="dateOfBirth" placeholder="Search by Date Of Birth">
+    </form>
     <table id="people">
       <thead>
       <tr>

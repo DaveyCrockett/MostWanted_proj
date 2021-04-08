@@ -1,13 +1,10 @@
 'use strict';
-//use this for category
 function searchByName(){
     // Grabbing the values from our nameForm form and inputs.
-    let firstNameInput = document.forms['nameForm']['fname'].value;
-    let lastNameInput = document.forms['nameForm']['lname'].value;
-
+    let firstNameInput = document.forms['searchBox']['firstName'].value;
     // "people" is coming from the data.js file. We have access to it within this JavaScript file.
     let filteredPeople = people.filter(function (person) {
-        if(person.firstName === firstNameInput && person.lastName === lastNameInput){
+        if(person.firstName === firstNameInput){
             return true;
         }
         return false;
@@ -21,36 +18,42 @@ function searchByName(){
     }
 }
 
-function validateNameForm(){
-    let valid = document.forms["nameForm"]["fname"].value;
-    let lastValid = document.forms["nameForm"]["lname"].value;
-    if(valid == ""){
-        alert("First Name needs to be filled");
-        return false;
-    }
-    if(lastValid == ""){
-        alert("Last Name needs to be filled");
-        return false;
+function searchByGender(){
+    // Grabbing the values from our nameForm form and inputs.
+    let genderInput = document.forms['searchBox']['gender'].value;
+
+    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
+    let filteredGender = people.filter(function (person) {
+        if(person.gender === genderInput){
+            return true;
+        } else{
+            return false;
+        }
+});
+    if(filteredGender.length > 0){
+        console.log(filteredGender);
+    }else{
+        console.log('Sorry, looks like there is no one with that gender.');
     }
 }
 
-function fltr(){
-    let input, filter, table, tr, i, tds;
-    input = document.getElementById("filter");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("people");
-    tr = table.getElementsByTagName("tr");
-    tds = table.getElementsByTagName("td");
-    for (i = 0; i < tr.length; i++) {
-        let firstCol = tds[0].textContent.toUpperCase();
-        let secondCol = tds[1].textContent.toUpperCase();
-        if (firstCol.indexOf(filter) > -1 || secondCol.indexOf(filter) > -1) {
-            tr[i].style.display = "";
-        }else{
-            tr[i].style.display = "none";
+function searchByDOB(){
+    // Grabbing the values from our nameForm form and inputs.
+    let firstNameInput = document.forms['searchBox']['dateOfBirth'].value;
+    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
+    let filteredPeople = people.filter(function (person) {
+        if(person.firstName === firstNameInput){
+            return true;
         }
-            
-        }
+        return false;
+    });
+    
+    // Rather than console logging, you need to append the filteredPeople to a table.
+    if(filteredPeople.length > 0){
+        console.log(filteredPeople);
+    }else{
+        console.log('Sorry, looks like there is no one with that date of birth.');
+    }
 }
 
 let body = '<tbody>'
@@ -69,4 +72,4 @@ for (let i = 0; i < people.length; i++) {
     body += '</tr>';
 }
 body +='</tbody>';
-    document.getElementById('data').innerHTML = body;
+document.getElementById('data').innerHTML = body;
