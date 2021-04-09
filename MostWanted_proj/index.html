@@ -15,18 +15,21 @@
           <input type="text" id="firstName"  placeholder="Search by first name">
           <input type="text" id="lastName"  placeholder="Search by last name">
           <input type="text" id="gender" placeholder="Search by Gender">
+          <input type="text" id="height" placeholder="Search by height">
+          <input type="text" id="weight" placeholder="Search by weight">
+          <input type="text" id="eyecolor" placeholder="Search by eye color.">
           <input type="text" id="dateOfBirth" placeholder="Search by Date Of Birth">
           <input type="text" id="allBox" placeholder="Search by any category">
-          <button type="button" onclick="searchByFirstName();searchByLastName();searchByGender();searchByDOB();allSearch()">Submit</button>
+          <button type="button" onclick="searchByFirstName();searchByLastName();searchByGender();searchByDOB();allSearch();searchByHeight()">Submit</button>
         </form>
         <br>
         <h2>Multiple criteria Search:</h2>
         <form id="searchBox2">
-          <input type="text" id="gender" placeholder="Search by Gender">
-          <input type="text" id="dateOfBirth" placeholder="Search by Date Of Birth">
-          <input type="text" id="height" placeholder="Search by height">
-          <input type="text" id="weight" placeholder="Search by weight">
-          <input type="text" id="eyecolor" placeholder="Search by eye color.">
+          <input type="text" id="gender2" placeholder="Search by Gender">
+          <input type="text" id="dateOfBirth2" placeholder="Search by Date Of Birth">
+          <input type="text" id="height2" placeholder="Search by height">
+          <input type="text" id="weight2" placeholder="Search by weight">
+          <input type="text" id="eyecolor2" placeholder="Search by eye color.">
           <button type="button" onclick="multiSearch()">Submit</button>
         </form>
         <button type="button" onclick="window.location.reload()">Clear</button>

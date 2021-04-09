@@ -80,6 +80,28 @@ function searchByDOB(){
     }
 }
 
+function searchByHeight(){
+    // Grabbing the values from our nameForm form and inputs.
+    let heightInput = document.forms['searchBox']['height'].value;
+    let heightInt = parseInt(heightInput);
+    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
+    let filteredHeight = people.filter(function (person) {
+        if(person.height === heightInt){
+            return true;
+        }
+        return false;
+    });
+    
+    // Rather than console logging, you need to append the filteredPeople to a table.
+    if(filteredHeight.length > 0){
+        console.log(filteredHeight);
+        enterTable(filteredHeight);
+    }else{
+        console.log('Sorry, looks like there is no one with that date of birth.');
+    }
+}
+
+
 function enterTable(searchFilter){
     let body = '<tbody>'
     for (let i = 0; i < searchFilter.length; i++) {
@@ -131,11 +153,11 @@ function allSearch(){
 }
 
 function multiSearch(){
-    let dobInput = document.forms['searchBox2']['dateOfBirth'].value;
-    let genderInput = document.forms['searchBox2']['gender'].value;
-    let heightInput = document.forms['searchBox2']['height'].value;
-    let weightInput = document.forms['searchBox2']['weight'].value;
-    let eyeColorInput = document.forms['searchBox2']['eyecolor'].value;
+    let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
+    let genderInput = document.forms['searchBox2']['gender2'].value;
+    let heightInput = document.forms['searchBox2']['height2'].value;
+    let weightInput = document.forms['searchBox2']['weight2'].value;
+    let eyeColorInput = document.forms['searchBox2']['eyecolor2'].value;
 
     if(dobInput == ""){
        
