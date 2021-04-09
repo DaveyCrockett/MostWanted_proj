@@ -59,27 +59,9 @@ function searchByDOB(){
         console.log('Sorry, looks like there is no one with that date of birth.');
     }
 }
-
-let body = '<tbody id="fullList">'
-for (let i = 0; i < people.length; i++) {
-    body += '<tr>';
-    body += '<td>' + people[i].firstName + '</td>';
-    body += '<td>' + people[i].lastName + '</td>';
-    body += '<td>' + people[i].gender + '</td>';
-    body += '<td>' + people[i].dob + '</td>';
-    body += '<td>' + people[i].height + '</td>';
-    body += '<td>' + people[i].weight + '</td>';
-    body += '<td>' + people[i].eyeColor + '</td>';
-    body += '<td>' + people[i].occupation + '</td>';
-    body += '<td>' + people[i].parents + '</td>';
-    body += '<td>' + people[i].currentSpouse + '</td>';
-    body += '</tr>';
-}
-body +='</tbody>';
-document.getElementById('data').innerHTML = body;
-
+//Maybe need another loop
 function enterTable(searchFilter){
-    let body = '<tbody id="byDefinition">'
+    let body = '<tbody>'
     for (let i = 0; i < searchFilter.length; i++) {
         body += '<tr>';
         body += '<td>' + searchFilter[i].firstName + '</td>';

@@ -4,32 +4,13 @@
     <meta charset="utf-8">
     <title>devCodeCamp &middot; Most Wanted</title>
   </head>
-  <body>
+  <body onload="enterTable(people)">
     <form id="searchBox" onkeyup="searchByName();searchByGender();searchByDOB()">
       <input type="text" id="firstName"  placeholder="Search by first name">
       <input type="text" id="gender" placeholder="Search by Gender">
       <input type="text" id="dateOfBirth" placeholder="Search by Date Of Birth">
     </form>
-    <table id="fullList">
-      <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Gender</th>
-        <th>DOB</th>
-        <th>Height</th>
-        <th>Weight</th>
-        <th>Eye Color</th>
-        <th>Occupation</th>
-        <th>Parents</th>
-        <th>Spouse(if any)</th>
-      </tr>
-    </thead>
-      <tbody id="data"></tbody>
-
-    </table>  
-
-    <table id="byDefinition">
+    <table>
       <thead>
       <tr>
         <th>First Name</th>
@@ -47,7 +28,7 @@
       <tbody id="definitionData"></tbody>
 
     </table>
-
+    
     <script src="data.js"></script>
     <script src="app.js"></script>
   </body>
