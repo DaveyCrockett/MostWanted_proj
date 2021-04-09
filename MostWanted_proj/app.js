@@ -1,10 +1,30 @@
 'use strict';
-function searchByName(){
+function searchByFirstName(){
     // Grabbing the values from our nameForm form and inputs.
     let firstNameInput = document.forms['searchBox']['firstName'].value;
     // "people" is coming from the data.js file. We have access to it within this JavaScript file.
     let filteredPeople = people.filter(function (person) {
         if(person.firstName === firstNameInput){
+            return true;
+        }
+        return false;
+    });
+    
+    // Rather than console logging, you need to append the filteredPeople to a table.
+    if(filteredPeople.length > 0){
+        console.log(filteredPeople);
+        enterTable(filteredPeople);
+    }else{
+        console.log('Sorry, looks like there is no one with that name.');
+    }
+}
+
+function searchByLastName(){
+    // Grabbing the values from our nameForm form and inputs.
+    let lastNameInput = document.forms['searchBox']['lastName'].value;
+    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
+    let filteredPeople = people.filter(function (person) {
+        if(person.lastName === lastNameInput){
             return true;
         }
         return false;
@@ -79,3 +99,7 @@ function enterTable(searchFilter){
     body +='</tbody>';
     document.getElementById('definitionData').innerHTML = body;
 }
+
+function showSearch() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }

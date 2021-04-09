@@ -2,14 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="mostWanted.css">
     <title>devCodeCamp &middot; Most Wanted</title>
   </head>
   <body onload="enterTable(people)">
-    <form id="searchBox" onkeyup="searchByName();searchByGender();searchByDOB()">
-      <input type="text" id="firstName"  placeholder="Search by first name">
-      <input type="text" id="gender" placeholder="Search by Gender">
-      <input type="text" id="dateOfBirth" placeholder="Search by Date Of Birth">
-    </form>
+      <div class="dropdown">
+        <button onclick="showSearch()" class="dropbtn">Dropdown</button>
+        <div id="myDropdown" class="dropdown-content">
+          <form id="searchBox" onkeyup="searchByFirstName();searchByLastName();searchByGender();searchByDOB()">
+          <input type="text" id="firstName"  placeholder="Search by first name">
+          <input type="text" id="lastName"  placeholder="Search by last name">
+          <input type="text" id="gender" placeholder="Search by Gender">
+          <input type="text" id="dateOfBirth" placeholder="Search by Date Of Birth">
+          <button type="button" onclick="window.location.reload()">Clear</button>
+        </form>
+        </div>
+      </div>
     <table>
       <thead>
       <tr>
