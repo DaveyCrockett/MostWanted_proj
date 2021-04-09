@@ -132,6 +132,8 @@ function multiSearch(){
     let heightInput = document.forms['searchBox2']['height2'].value;
     let weightInput = document.forms['searchBox2']['weight2'].value;
     let eyeColorInput = document.forms['searchBox2']['eyecolor2'].value;
+    let heightInt = parseInt(heightInput);
+    let weightInt = parseInt(weightInput);
 
     if(dobInput == ""){
        
@@ -167,16 +169,17 @@ function multiSearch(){
         }
     }
 
-    if(heightInput == ""){
+    if(heightInt == ""){
        
     }else{
+       
         let filteredHeight = people.filter(function(person){
-            if(person.height === heightInput){
+            if(person.height === heightInt){
                 return true;
             }
             return false;
         });
-        if(filteredheight.length > 0){
+        if(filteredHeight.length > 0){
             console.log(filteredHeight);
             enterTable(filteredHeight);
         }else{
@@ -184,11 +187,11 @@ function multiSearch(){
         }
     }
 
-    if(weightInput == ""){
+    if(weightInt == ""){
        
     }else{
         let filteredWeight = people.filter(function(person){
-            if(person.weight === weightInput){
+            if(person.weight === weightInt){
                 return true;
             }
             return false;
