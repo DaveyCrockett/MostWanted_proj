@@ -10,19 +10,24 @@
         <button onclick="showSearch()" class="dropbtn">Dropdown</button>
         <!--Form Labels needed-->
         <div id="myDropdown" class="dropdown-content">
-          <form id="searchBox" onkeyup="searchByFirstName();searchByLastName();searchByGender();searchByDOB();allSearch()">
+          <h2>Individual Search:</h2>
+          <form id="searchBox">
           <input type="text" id="firstName"  placeholder="Search by first name">
           <input type="text" id="lastName"  placeholder="Search by last name">
           <input type="text" id="gender" placeholder="Search by Gender">
           <input type="text" id="dateOfBirth" placeholder="Search by Date Of Birth">
           <input type="text" id="allBox" placeholder="Search by any category">
+          <button type="button" onclick="searchByFirstName();searchByLastName();searchByGender();searchByDOB();allSearch()">Submit</button>
         </form>
         <br>
-        <form id="searchBox2" onkeyup="multiSearch()">
-          <input type="text" id="firstName"  placeholder="Search by first name">
-          <input type="text" id="lastName"  placeholder="Search by last name">
+        <h2>Multiple criteria Search:</h2>
+        <form id="searchBox2">
           <input type="text" id="gender" placeholder="Search by Gender">
           <input type="text" id="dateOfBirth" placeholder="Search by Date Of Birth">
+          <input type="text" id="height" placeholder="Search by height">
+          <input type="text" id="weight" placeholder="Search by weight">
+          <input type="text" id="eyecolor" placeholder="Search by eye color.">
+          <button type="button" onclick="multiSearch()">Submit</button>
         </form>
         <button type="button" onclick="window.location.reload()">Clear</button>
         </div>

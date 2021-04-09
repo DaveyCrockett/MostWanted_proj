@@ -79,7 +79,7 @@ function searchByDOB(){
         console.log('Sorry, looks like there is no one with that date of birth.');
     }
 }
-//Maybe need another loop
+
 function enterTable(searchFilter){
     let body = '<tbody>'
     for (let i = 0; i < searchFilter.length; i++) {
@@ -131,23 +131,94 @@ function allSearch(){
 }
 
 function multiSearch(){
-    let firstNameInput = document.forms['searchBox2']['firstName'].value;
-    let lastNameInput = document.forms['searchBox2']['lastName'].value;
-    let genderInput = document.forms['searchBox2']['gender'].value;
     let dobInput = document.forms['searchBox2']['dateOfBirth'].value;
+    let genderInput = document.forms['searchBox2']['gender'].value;
+    let heightInput = document.forms['searchBox2']['height'].value;
+    let weightInput = document.forms['searchBox2']['weight'].value;
+    let eyeColorInput = document.forms['searchBox2']['eyecolor'].value;
 
-    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
-    let filteredGender = people.filter(function (person) {
-        if(person.firstName === firstNameInput || person.lastName === lastNameInput || person.gender === genderInput || person.dob === dobInput){
-            return true;
-        }
-            return false;
-});
-    if(filteredGender.length > 0){
-        console.log(filteredGender);
-        enterTable(filteredGender);
-      
+    if(dobInput == ""){
+       
     }else{
-        console.log('Sorry, looks like there is no one with that entry');
+        let filteredDOB = people.filter(function(person){
+            if(person.dob === dobInput){
+                return true;
+            }
+            return false;
+        });
+        if(filteredDOB.length > 0){
+            console.log(filteredDOB);
+            enterTable(filteredDOB);
+        }else{
+            console.log('Sorry, looks like there is no one with that date of birth.');
+        }
     }
-}
+
+    if(genderInput == ""){
+       
+    }else{
+        let filteredGender = people.filter(function(person){
+            if(person.gender === genderInput){
+                return true;
+            }
+            return false;
+        });
+        if(filteredGender.length > 0){
+            console.log(filteredGender);
+            enterTable(filteredGender);
+        }else{
+            console.log('Sorry, looks like there is no one with that date of birth.');
+        }
+    }
+
+    if(heightInput == ""){
+       
+    }else{
+        let filteredHeight = people.filter(function(person){
+            if(person.height === heightInput){
+                return true;
+            }
+            return false;
+        });
+        if(filteredheight.length > 0){
+            console.log(filteredHeight);
+            enterTable(filteredHeight);
+        }else{
+            console.log('Sorry, looks like there is no one with that date of birth.');
+        }
+    }
+
+    if(weightInput == ""){
+       
+    }else{
+        let filteredWeight = people.filter(function(person){
+            if(person.weight === weightInput){
+                return true;
+            }
+            return false;
+        });
+        if(filteredWeight.length > 0){
+            console.log(filteredWeight);
+            enterTable(filteredWeight);
+        }else{
+            console.log('Sorry, looks like there is no one with that date of birth.');
+        }
+    }
+
+    if(eyeColorInput == ""){
+       
+    }else{
+        let filteredEyeColor = people.filter(function(person){
+            if(person.eyecolor === eyeColorInput){
+                return true;
+            }
+            return false;
+        });
+        if(filteredEyeColor.length > 0){
+            console.log(filteredEyeColor);
+            enterTable(filteredEyeColor);
+        }else{
+            console.log('Sorry, looks like there is no one with that date of birth.');
+        }
+    }
+} 
