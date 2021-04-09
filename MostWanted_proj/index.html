@@ -8,14 +8,23 @@
   <body onload="enterTable(people)">
       <div class="dropdown">
         <button onclick="showSearch()" class="dropbtn">Dropdown</button>
+        <!--Form Labels needed-->
         <div id="myDropdown" class="dropdown-content">
-          <form id="searchBox" onkeyup="searchByFirstName();searchByLastName();searchByGender();searchByDOB()">
+          <form id="searchBox" onkeyup="searchByFirstName();searchByLastName();searchByGender();searchByDOB();allSearch()">
           <input type="text" id="firstName"  placeholder="Search by first name">
           <input type="text" id="lastName"  placeholder="Search by last name">
           <input type="text" id="gender" placeholder="Search by Gender">
           <input type="text" id="dateOfBirth" placeholder="Search by Date Of Birth">
-          <button type="button" onclick="window.location.reload()">Clear</button>
+          <input type="text" id="allBox" placeholder="Search by any category">
         </form>
+        <br>
+        <form id="searchBox2" onkeyup="multiSearch()">
+          <input type="text" id="firstName"  placeholder="Search by first name">
+          <input type="text" id="lastName"  placeholder="Search by last name">
+          <input type="text" id="gender" placeholder="Search by Gender">
+          <input type="text" id="dateOfBirth" placeholder="Search by Date Of Birth">
+        </form>
+        <button type="button" onclick="window.location.reload()">Clear</button>
         </div>
       </div>
     <table>

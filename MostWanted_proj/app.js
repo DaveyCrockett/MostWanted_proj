@@ -103,3 +103,51 @@ function enterTable(searchFilter){
 function showSearch() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
+
+function allSearch(){
+    // Grabbing the values from our nameForm form and inputs.
+    let masterInput = document.forms['searchBox']['allBox'].value;
+
+    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
+    let filteredGender = people.filter(function (person) {
+        if(person.firstName === masterInput){
+            return true;
+        }else if(person.lastName === masterInput){
+            return true;
+        }else if(person.gender === masterInput){
+            return true;
+        }else if(person.dob === masterInput){
+            return true
+        }
+            return false;
+});
+    if(filteredGender.length > 0){
+        console.log(filteredGender);
+        enterTable(filteredGender);
+      
+    }else{
+        console.log('Sorry, looks like there is no one with that gender.');
+    }
+}
+
+function multiSearch(){
+    let firstNameInput = document.forms['searchBox2']['firstName'].value;
+    let lastNameInput = document.forms['searchBox2']['lastName'].value;
+    let genderInput = document.forms['searchBox2']['gender'].value;
+    let dobInput = document.forms['searchBox2']['dateOfBirth'].value;
+
+    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
+    let filteredGender = people.filter(function (person) {
+        if(person.firstName === firstNameInput || person.lastName === lastNameInput || person.gender === genderInput || person.dob === dobInput){
+            return true;
+        }
+            return false;
+});
+    if(filteredGender.length > 0){
+        console.log(filteredGender);
+        enterTable(filteredGender);
+      
+    }else{
+        console.log('Sorry, looks like there is no one with that entry');
+    }
+}
