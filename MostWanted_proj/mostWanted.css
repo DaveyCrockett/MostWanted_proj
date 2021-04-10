@@ -57,3 +57,16 @@
   
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
+
+  tr:nth-child(even) {
+    background-color: #a0c1f7
+  }
+
+  tr:nth-child(odd) {
+    background-color: #00587b;
+    color: #c2c2c2;
+  }
+
+  table {
+    border: black;
+  }
