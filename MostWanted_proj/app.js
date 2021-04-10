@@ -15,7 +15,7 @@ function searchByFirstName(){
         console.log(filteredPeople);
         enterTable(filteredPeople);
     }else{
-        console.log('Sorry, looks like there is no one with that name.');
+        console.log('Sorry, looks like there is no one with that first name.');
     }
 }
 
@@ -35,7 +35,7 @@ function searchByLastName(){
         console.log(filteredPeople);
         enterTable(filteredPeople);
     }else{
-        console.log('Sorry, looks like there is no one with that name.');
+        console.log('Sorry, looks like there is no one with that last name.');
     }
 }
 
@@ -97,7 +97,7 @@ function searchByHeight(){
         console.log(filteredHeight);
         enterTable(filteredHeight);
     }else{
-        console.log('Sorry, looks like there is no one with that date of birth.');
+        console.log('Sorry, looks like there is no one with that height.');
     }
 }
 
@@ -165,7 +165,7 @@ function multiSearch(){
             console.log(filteredGender);
             enterTable(filteredGender);
         }else{
-            console.log('Sorry, looks like there is no one with that date of birth.');
+            console.log('Sorry, looks like there is no one with gender.');
         }
     }
 
@@ -183,7 +183,7 @@ function multiSearch(){
             console.log(filteredHeight);
             enterTable(filteredHeight);
         }else{
-            console.log('Sorry, looks like there is no one with that date of birth.');
+            console.log('Sorry, looks like there is no one with that height.');
         }
     }
 
@@ -200,7 +200,7 @@ function multiSearch(){
             console.log(filteredWeight);
             enterTable(filteredWeight);
         }else{
-            console.log('Sorry, looks like there is no one with that date of birth.');
+            console.log('Sorry, looks like there is no one with that weight.');
         }
     }
 
@@ -217,7 +217,7 @@ function multiSearch(){
             console.log(filteredEyeColor);
             enterTable(filteredEyeColor);
         }else{
-            console.log('Sorry, looks like there is no one with that date of birth.');
+            console.log('Sorry, looks like there is no one with that eye color.'); 
         }
     }
 } 
