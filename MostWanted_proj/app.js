@@ -132,19 +132,18 @@ function searchByWeight(){
 function searchByEyeColor(){
     // Grabbing the values from our nameForm form and inputs.
     let eColorInput = document.forms['searchBox']['eyeColor'].value;
-    let ecolorInt = parseInt(eColorInput);
     // "people" is coming from the data.js file. We have access to it within this JavaScript file.
-    let filteredecolor = people.filter(function (person) {
-        if(person.ecolor === ecolorInt){
+    let filteredEcolor = people.filter(function (person) {
+        if(person.eyeColor === eColorInput){
             return true;
         }
         return false;
     });
     
     // Rather than console logging, you need to append the filteredPeople to a table.
-    if(filteredecolor.length > 0){
-        console.log(filteredecolor);
-        enterTable(filteredecolor);
+    if(filteredEcolor.length > 0){
+        console.log(filteredEcolor);
+        enterTable(filteredEcolor);
     }else{
         console.log('Sorry, looks like there is no one with that eye color.');
     }
