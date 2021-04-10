@@ -184,6 +184,31 @@ function enterTable(searchFilter){
 function showSearch() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
+//parentsMatch need some work but its on its way.
+function parentsMatch(){
+    let singleParent = people.map(item => item.parents);
+    let filteredPeople = people.filter(function (person) {
+    for(let index = 0; index < singleParent.length; index++){
+        for(let i = index + 1; i < singleParent.length; i++){
+            if(singleParent[index] === person.id){
+                return true;
+            }
+            return false;
+        }
+        
+    }
+    });
+    
+    // Rather than console logging, you need to append the filteredPeople to a table.
+    if(filteredPeople.length > 0){
+        console.log(filteredPeople);
+    }else{
+        console.log('Not a match.');
+    }
+ }
+
+
+parentsMatch();
 
 function multiSearch(){
     let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
