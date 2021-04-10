@@ -69,19 +69,10 @@ function searchByDOB(){
     let DobInput = document.forms['searchBox']['dateOfBirth'].value;
     //Date input being formatted.
     let DobFormat = new Date(DobInput);
-    let dd = DobFormat.getDate();
-
-    let mm = DobFormat.getMonth()+1; 
-    let yyyy = DobFormat.getFullYear();
-    if(dd<10) 
-    {
-        dd='0'+dd;
-    } 
-
-    if(mm<10) 
-    {
-        mm='0'+mm;
-    } 
+    let DobFormatDay = addDays(DobInput, 1);
+    let dd = DobFormatDay.getDate();
+    let mm = DobFormatDay.getMonth() +1; 
+    let yyyy = DobFormatDay.getFullYear();
     DobFormat = mm+'/'+dd+'/'+yyyy;
     // "people" is coming from the data.js file. We have access to it within this JavaScript file.
     let filteredDob = people.filter(function (person) {
@@ -99,7 +90,11 @@ function searchByDOB(){
         console.log('Sorry, looks like there is no one with that date of birth.');
     }
 }
-
+function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
 
 //Height Search
 function searchByHeight(){
