@@ -185,30 +185,30 @@ function showSearch() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
 //parentsMatch need some work but its on its way.
-function parentsMatch(){
-    let singleParent = people.map(item => item.parents);
-    let filteredPeople = people.filter(function (person) {
-    for(let index = 0; index < singleParent.length; index++){
-        for(let i = index + 1; i < singleParent.length; i++){
-            if(singleParent[index] === person.id){
-                return true;
-            }
-            return false;
-        }
-        
-    }
+
+function MatchMaking(){
+    let parentId = people.map(item => item.parents);
+    let mergeId = [].concat.apply([], parentId);
+    let index = 0;
+    let filteredParents = people.filter(function (person) {
+                if(person.id === mergeId[index]){
+                    console.log(person.firstName + " " + person.lastName);
+                }else{
+                    console.log("No Match");
+                }  
+                index++;
     });
     
     // Rather than console logging, you need to append the filteredPeople to a table.
-    if(filteredPeople.length > 0){
-        console.log(filteredPeople);
+     if(filteredParents.length > 0){
+        console.log(filteredParents);
     }else{
-        console.log('Not a match.');
+        console.log('Sorry, looks like there is no one with that first name.');
     }
- }
+        
+    }
+MatchMaking();
 
-
-parentsMatch();
 
 function multiSearch(){
     let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
