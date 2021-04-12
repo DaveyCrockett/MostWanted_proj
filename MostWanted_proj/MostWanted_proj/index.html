@@ -12,19 +12,20 @@
       <button onclick="showSearch()" class="dropbtn">Search features</button>
       <!--Form Labels needed-->
       <div id="myDropdown" class="dropdown-content">
-          <form id="searchBox">
+          <form id="searchBox" name="form1">
             <h2>Individual Search:</h2>
-            <input type="text" id="firstName"  placeholder="Search by first name">
-            <input type="text" id="lastName"  placeholder="Search by last name">
-            <input type="text" id="height" placeholder="Search by height">
-            <input type="text" id="weight" placeholder="Search by weight">
-            <input type="text" id="eyeColor" placeholder="Search by eye color">
-            <input type="text" id="occupation" placeholder="Search by occupation">
+            <input type="text" name="fname" id="firstName"  placeholder="Search by first name" onkeyup="fnameLetters()">
+            <input type="text" name="lname" id="lastName"  placeholder="Search by last name" onkeyup="lnameLetters()">
+            <input type="text" name="height" id="height" placeholder="Search by height" onkeyup="heightLetters()">
+            <input type="text" name="weight" id="weight" placeholder="Search by weight" onkeyup="weightLetters()">
+            <input type="text" name="eyeColor" id="eyeColor" placeholder="Search by eye color" onkeyup="eyeColorLetters()">
+            <input type="text" name ="occupation" id="occupation" placeholder="Search by occupation" onkeyup="occupationLetters()">
             <br>
             <label for="gender">Search by Gender</label>
             <select name="gender" id="gender">
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
+              <option value="select">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
             </select>
             <br>
             <br>
@@ -36,15 +37,17 @@
           </form>
           <form id="searchBox2">
             <h2>Multiple Search:</h2>
-            <label for="gender2">Search by Gender</label>
-            <select name="gender2" id="gender2">
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
             <input type="text" id="height2" placeholder="Search by height">
             <input type="text" id="weight2" placeholder="Search by weight">
             <input type="text" id="eyecolor2" placeholder="Search by eye color">
             <input type="text" id="occupation2" placeholder="Search by occupation">
+            <label for="gender2">Search by Gender</label>
+            <select name="gender2" id="gender2">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              
+            </select>
+            <br>
             <br>
             <label for="dateOfBirth2">Search by D.O.B.</label>
             <input type="date" id="dateOfBirth2">

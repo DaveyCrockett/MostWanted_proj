@@ -471,4 +471,3 @@ function multiSearch(){
         }
 }
 let tableClearArray = people
-// clearTableContents(tableClearArray)
