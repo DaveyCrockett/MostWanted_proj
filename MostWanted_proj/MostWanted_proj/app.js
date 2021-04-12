@@ -14,7 +14,9 @@ function searchByFirstName(){
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredPeople.length > 0){
         console.log(filteredPeople);
-        enterTable(filteredPeople);
+        data = filteredPeople;
+        generateTableContents(table, data);
+
     }else{
         console.log('Sorry, looks like there is no one with that first name.');
     }
@@ -129,7 +131,8 @@ function searchByLastName(){
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredPeople.length > 0){
         console.log(filteredPeople);
-        enterTable(filteredPeople);
+        data = filterPeople;
+        generateTableContents(table, data);
     }else{
         console.log('Sorry, looks like there is no one with that last name.');
     }
@@ -150,7 +153,8 @@ function searchByGender(){
 });
     if(filteredGender.length > 0){
         console.log(filteredGender);
-        enterTable(filteredGender);
+        data = filteredGender;
+        generateTableContents(table, data);
       
     }else{
         console.log('Sorry, looks like there is no one with that gender.');
@@ -179,7 +183,8 @@ function searchByDOB(){
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredDob.length > 0){
         console.log(filteredDob);
-        enterTable(filteredDob);
+        data = filteredDob;
+        generateTableContents(table, data);
     }else{
         console.log('Sorry, looks like there is no one with that date of birth.');
     }
@@ -206,7 +211,8 @@ function searchByHeight(){
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredHeight.length > 0){
         console.log(filteredHeight);
-        enterTable(filteredHeight);
+        data = filteredHeight;
+        generateTableContents(table, data);
     }else{
         console.log('Sorry, looks like there is no one with that height.');
     }
@@ -228,7 +234,8 @@ function searchByWeight(){
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredWeight.length > 0){
         console.log(filteredWeight);
-        enterTable(filteredWeight);
+        data = filteredWeight;
+        generateTableContents(table, data);
     }else{
         console.log('Sorry, looks like there is no one with that weight.');
     }
@@ -249,31 +256,12 @@ function searchByEyeColor(){
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredEcolor.length > 0){
         console.log(filteredEcolor);
-        enterTable(filteredEcolor);
+        data = filteredEcolor;
+        generateTableContents(table, data);
     }else{
         console.log('Sorry, looks like there is no one with that eye color.');
     }
 }
-
-// function enterTable(searchFilter){
-//     let body = '<tbody>'
-//     for (let i = 0; i < searchFilter.length; i++) {
-//         body += '<tr>';
-//         body += '<td>' + searchFilter[i].firstName + '</td>';
-//         body += '<td>' + searchFilter[i].lastName + '</td>';
-//         body += '<td>' + searchFilter[i].gender + '</td>';
-//         body += '<td>' + searchFilter[i].dob + '</td>';
-//         body += '<td>' + searchFilter[i].height + '</td>';
-//         body += '<td>' + searchFilter[i].weight + '</td>';
-//         body += '<td>' + searchFilter[i].eyeColor + '</td>';
-//         body += '<td>' + searchFilter[i].occupation + '</td>';
-//         body += '<td>' + searchFilter[i].parents + '</td>';
-//         body += '<td>' + searchFilter[i].currentSpouse + '</td>';
-//         body += '</tr>';
-//     }
-//     body +='</tbody>';
-//     document.getElementById('definitionData').innerHTML = body;
-// }
 
 function showSearch() {
     document.getElementById("myDropdown").classList.toggle("show");
