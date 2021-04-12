@@ -1,37 +1,6 @@
 'use strict';
 //First name search
-function searchByFirstName(){
-    // Grabbing the values from our nameForm form and inputs.
-    let firstNameInput = document.forms['searchBox']['firstName'].value;
-    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
-    let filteredPeople = people.filter(function (person) {
-        if(person.firstName === firstNameInput){
-            return true;
-        }
-        return false;
-    });
-    
-    // Rather than console logging, you need to append the filteredPeople to a table.
-    if(filteredPeople.length > 0){
-        console.log(filteredPeople);
-        data = filteredPeople;
-        generateTableContents(table, data);
 
-    }else{
-        console.log('Sorry, looks like there is no one with that first name.');
-    }
-}
-
-function generateTableHead(){
-    let thead = table.createTHead();
-    let row = thead.insertRow();
-    for (let key of data){
-        let th = document.createElement("th");
-        let text = document.createTextNode(key);
-        th.appendChild(text)
-        row.appendChild(th);
-    }
-}
 function generateTableContents(){
 for (let person of data){
 let row = table.insertRow();
@@ -114,8 +83,40 @@ let table = document.querySelector("table");
 let data = Object.keys(personTable[0]);
 generateTableHead(table, data);
 data = people
-generateTableContents(table, data);
 
+
+function searchByFirstName(){
+    // Grabbing the values from our nameForm form and inputs.
+    let firstNameInput = document.forms['searchBox']['firstName'].value;
+    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
+    let filteredPeople = people.filter(function (person) {
+        if(person.firstName === firstNameInput){
+            return true;
+        }
+        return false;
+    });
+    
+    // Rather than console logging, you need to append the filteredPeople to a table.
+    if(filteredPeople.length > 0){
+        console.log(filteredPeople);
+        data = filteredPeople;
+        generateTableContents(table, data);
+        
+    }else{
+        console.log('Sorry, looks like there is no one with that first name.');
+    }
+}
+
+function generateTableHead(){
+    let thead = table.createTHead();
+    let row = thead.insertRow();
+    for (let key of data){
+        let th = document.createElement("th");
+        let text = document.createTextNode(key);
+        th.appendChild(text)
+        row.appendChild(th);
+    }
+}
 //Last Name Search
 function searchByLastName(){
     // Grabbing the values from our nameForm form and inputs.
@@ -266,57 +267,6 @@ function searchByEyeColor(){
 function showSearch() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
-//parentsMatch need some work but its on its way.
-
-function MatchMaking(){
-    let parentId = people.map(item => item.parents);
-    let mergeId = [].concat.apply([], parentId);
-  
-    let filteredParents = people.filter(function (person) {
-       
-             for(let i = 0; i < mergeId.length; i ++){
-                if(person.id === mergeId[i]){
-                    return person.firstName, person.lastName;
-                }else{
-                    console.log("No Match");
-                }  
-             } 
-             
-    });
-    
-    if(filteredParents.length > 0){
-        console.log(filteredParents);
-        replaceId(filteredParents);
-    }else{
-        console.log('Sorry, looks like there is no one with that eye color.');
-    }           
-    
-
-    
-    }
-MatchMaking();
-
-function replaceId(parentNames){
-    let j = 0;
-   let filteredParents = people.filter(function(person){
-       let parentId = person.parents;
-    for(let i = 0; i < parentId.length; i++){
-        let index = parentId.indexOf(parentId[i]);
-    if (~index) {
-        
-            if(parentId[i] === person.parents[i]){
-              person.parents[i] = parentNames[j].firstName + " " + parentNames[j].lastName;
-               j++;
-            }
-            
-    }
-   
-    }
-    
-   });
-    console.log(filteredParents);
-    
-}
 
 function multiSearch(){
     let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
@@ -461,3 +411,108 @@ function multiSearch(){
     }
     
 } 
+
+function fnameLetters()
+      { 
+    let inputtxt = document.form1.fname;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+function lnameLetters()
+      { 
+    let inputtxt = document.form1.lname;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+function genderLetters()
+      { 
+    let inputtxt = document.form1.gender;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+function heightLetters()
+      { 
+    let inputtxt = document.form1.height;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+    function weightLetters()
+      { 
+    let inputtxt = document.form1.weight;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+      function eyeColorLetters()
+      { 
+    let inputtxt = document.form1.eyeColor;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+      function occupationLetters()
+      { 
+    let inputtxt = document.form1.occupation;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
