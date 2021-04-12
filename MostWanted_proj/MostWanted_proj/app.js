@@ -108,7 +108,7 @@ let row = table.insertRow();
    }
   }
  }
-}                
+}
 
 let table = document.querySelector("table");
 let data = Object.keys(personTable[0]);
