@@ -13,7 +13,8 @@ function searchByFirstName(){
     
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredPeople.length > 0){
-        console.log(filteredPeople);
+        clearTableContents(tableClearArray)
+        tableClearArray = filteredPeople
         data = filteredPeople;
         generateTableContents(table, data);
 
@@ -460,4 +461,14 @@ function multiSearch(){
         }
     }
     
-} 
+}
+        function clearTableContents(){
+        let tableclear = document.querySelector('table');
+        let counter = 0
+        while(counter < tableClearArray.length){
+        tableclear.deleteRow(1)
+        counter++;
+        }
+}
+let tableClearArray = people
+// clearTableContents(tableClearArray)
