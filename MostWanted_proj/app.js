@@ -224,7 +224,7 @@ function replaceId(parentNames){
         
             if(parentId[i] === person.parents[i]){
               person.parents[i] = parentNames[j].firstName + " " + parentNames[j].lastName;
-              j++;
+               j++;
             }
             
     }
