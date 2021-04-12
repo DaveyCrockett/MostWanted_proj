@@ -20,6 +20,100 @@ function searchByFirstName(){
     }
 }
 
+function generateTableHead(){
+    let thead = table.createTHead();
+    let row = thead.insertRow();
+    for (let key of data){
+        let th = document.createElement("th");
+        let text = document.createTextNode(key);
+        th.appendChild(text)
+        row.appendChild(th);
+    }
+}
+function generateTableContents(){
+for (let person of data){
+let row = table.insertRow();
+    for (let key in person){
+        if(key === 'firstName'){
+        let cell = row.insertCell();
+        let text = document.createTextNode(person[key]);
+        cell.appendChild(text)}
+        if(key === 'lastName'){
+        let cell = row.insertCell();
+        let text = document.createTextNode(person[key]);
+        cell.appendChild(text)}
+        if(key === 'gender'){
+        let cell = row.insertCell();
+        let text = document.createTextNode(person[key]);
+        cell.appendChild(text)}
+        if(key === 'dob'){
+        let cell = row.insertCell();
+        let text = document.createTextNode(person[key]);
+        cell.appendChild(text)}
+        if(key === 'height'){
+        let cell = row.insertCell();
+        let text = document.createTextNode(person[key]);
+        cell.appendChild(text)}
+        if(key === 'weight'){
+        let cell = row.insertCell();
+        let text = document.createTextNode(person[key]);
+        cell.appendChild(text)}
+        if(key === 'eyeColor'){
+        let cell = row.insertCell();
+        let text = document.createTextNode(person[key]);
+        cell.appendChild(text)}
+        if(key === 'occupation'){
+        let cell = row.insertCell();
+        let text = document.createTextNode(person[key]);
+        cell.appendChild(text)}
+        if(key === 'parents'){
+        let parentsFound = person[key]
+        if(parentsFound.length === 0){
+        parentsFound = 'None'
+        }
+        if(parentsFound.length === 1){
+        let parentFiltered =people.filter(function(person){
+        if(person.id === parentsFound[0])
+        parentsFound[0] = person.firstName + ' ' + person.lastName
+        })
+        }
+        if(parentsFound.length === 2){
+        let parentFiltered =people.filter(function(person){
+        if(person.id === parentsFound[0])
+        parentsFound[0] = person.firstName + ' ' + person.lastName
+        })
+        let parentsFiltered =people.filter(function(person){
+        if(person.id === parentsFound[1])
+        parentsFound[1] = person.firstName + ' ' + person.lastName
+        })
+        }
+        let cell = row.insertCell();
+        let text = document.createTextNode(parentsFound);
+        cell.appendChild(text)
+        }                                            
+        if(key === 'currentSpouse'){
+        let spouseFound = person[key]
+        if(spouseFound == null){
+        spouseFound = 'N/A'
+        }
+        let spouseFiltered =people.filter(function(person){
+        if(person.id === spouseFound)
+        spouseFound = person.firstName + ' ' + person.lastName
+        })
+        let cell = row.insertCell();
+        let text = document.createTextNode(spouseFound);
+        cell.appendChild(text)
+   }
+  }
+ }
+}                
+
+let table = document.querySelector("table");
+let data = Object.keys(personTable[0]);
+generateTableHead(table, data);
+data = people
+generateTableContents(table, data);
+
 //Last Name Search
 function searchByLastName(){
     // Grabbing the values from our nameForm form and inputs.
@@ -161,25 +255,25 @@ function searchByEyeColor(){
     }
 }
 
-function enterTable(searchFilter){
-    let body = '<tbody>'
-    for (let i = 0; i < searchFilter.length; i++) {
-        body += '<tr>';
-        body += '<td>' + searchFilter[i].firstName + '</td>';
-        body += '<td>' + searchFilter[i].lastName + '</td>';
-        body += '<td>' + searchFilter[i].gender + '</td>';
-        body += '<td>' + searchFilter[i].dob + '</td>';
-        body += '<td>' + searchFilter[i].height + '</td>';
-        body += '<td>' + searchFilter[i].weight + '</td>';
-        body += '<td>' + searchFilter[i].eyeColor + '</td>';
-        body += '<td>' + searchFilter[i].occupation + '</td>';
-        body += '<td>' + searchFilter[i].parents + '</td>';
-        body += '<td>' + searchFilter[i].currentSpouse + '</td>';
-        body += '</tr>';
-    }
-    body +='</tbody>';
-    document.getElementById('definitionData').innerHTML = body;
-}
+// function enterTable(searchFilter){
+//     let body = '<tbody>'
+//     for (let i = 0; i < searchFilter.length; i++) {
+//         body += '<tr>';
+//         body += '<td>' + searchFilter[i].firstName + '</td>';
+//         body += '<td>' + searchFilter[i].lastName + '</td>';
+//         body += '<td>' + searchFilter[i].gender + '</td>';
+//         body += '<td>' + searchFilter[i].dob + '</td>';
+//         body += '<td>' + searchFilter[i].height + '</td>';
+//         body += '<td>' + searchFilter[i].weight + '</td>';
+//         body += '<td>' + searchFilter[i].eyeColor + '</td>';
+//         body += '<td>' + searchFilter[i].occupation + '</td>';
+//         body += '<td>' + searchFilter[i].parents + '</td>';
+//         body += '<td>' + searchFilter[i].currentSpouse + '</td>';
+//         body += '</tr>';
+//     }
+//     body +='</tbody>';
+//     document.getElementById('definitionData').innerHTML = body;
+// }
 
 function showSearch() {
     document.getElementById("myDropdown").classList.toggle("show");

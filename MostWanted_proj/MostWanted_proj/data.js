@@ -287,3 +287,18 @@ const people = [
 		"currentSpouse": null
 	}
 ];
+
+const personTable = [
+	{
+		"First Name" : "Billy",
+		"Last Name" : "Bob",
+		"Gender" : "male",
+		"DOB" : "1/18/1949",
+		"Height": 71,
+		"Weight": 175,
+		"Eye Color": "brown",
+		"Occupation": "programmer",
+		"Parents": [],
+		"Current Spouse": 401222887
+	},
+]
