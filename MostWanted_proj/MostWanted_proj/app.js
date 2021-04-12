@@ -516,3 +516,43 @@ function heightLetters()
       return false;
       }
       }
+
+      
+      const filterBy = (prop, value) => people =>
+        value === ''
+          ? people
+          : movies.filter(people => 
+            Array.isArray(person[prop])
+              ? people[prop].some(x => x === value)
+              : people[prop] === value
+          )
+          
+      const peopleToListItems = people => 
+        people.map(person => (
+          `<div class="person">
+            <h4>${person.firstName}</h4>
+            <p>${person.lastName.join()}</p>
+            <span>${person.height}</span>
+          </div>`
+        )).join('')
+      
+      const filterPeople = ({ firstName, lastName, height }) => people =>
+        [people]
+          .map(filterBy('firstName', firstName))
+          .map(filterBy('lastName', lastName))
+          .map(filterBy('actors', actors))
+          .map(moviesToListItems)
+          .pop()
+      
+      const el = selector => document.querySelector(selector)
+      const search = el('#search')
+      const output = el('#output')
+      
+      const searchMovies = movies => e => {
+        output.innerHTML = filterMovies({
+          title: el('#title').value,
+          actors: el('#actors').value,
+          genre: el('#genre').value
+        })(movies)
+      }
+      search.addEventListener('click', searchMovies(movies))
