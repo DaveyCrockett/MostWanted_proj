@@ -189,14 +189,15 @@ function showSearch() {
 function MatchMaking(){
     let parentId = people.map(item => item.parents);
     let mergeId = [].concat.apply([], parentId);
-    let index = 0;
     let filteredParents = people.filter(function (person) {
-                if(person.id === mergeId[index]){
+             for(let i = 0; i < mergeId.length; i ++){
+                if(person.id === mergeId[i]){
                     console.log(person.firstName + " " + person.lastName);
                 }else{
                     console.log("No Match");
                 }  
-                index++;
+             }
+             
     });
     
     // Rather than console logging, you need to append the filteredPeople to a table.
