@@ -396,14 +396,14 @@ function multiSearch(){
     if(occupationInput == ""){
        
     }else{
-        let filteredEyeColor = people.filter(function(person){
-            if(person.eyecolor === eyeColorInput){
+        let filteredOccupation = people.filter(function(person){
+            if(person.occupation === occupationInput){
                 return true;
             }
             return false;
         });
-        if(filteredEyeColor.length > 0){
-            filteredEyeColor.push(eyecolorArray);
+        if(filteredOccupation.length > 0){
+            filteredOccupation.push(occupationArray);
         }else{
             console.log('Sorry, looks like there is no one with that eye color.'); 
         }
