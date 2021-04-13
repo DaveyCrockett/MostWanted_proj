@@ -601,16 +601,15 @@ let tableClearArray = people;
 let descendantArray = [];
 
 function displayDescendants(){
-    for (let key in people){
-        if (key === 'firstName'){
-            if ('parents' == [] ){
+    for (let key of people){
+        if (key.firstName){
+            if (key['parents'] === [] ){
         } else {
-            descendantArray.push('parents');
+            descendantArray.push(key);
             console.log(descendantArray)
         }
         }
     }
 }
-console.log("Yes!!!!!!")
 
 displayDescendants();
