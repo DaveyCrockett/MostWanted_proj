@@ -272,6 +272,27 @@ function searchByEyeColor(){
     }
 }
 
+function searchByOccupation(){
+    // Grabbing the values from our nameForm form and inputs.
+    let occupationInput = document.forms['searchBox']['occupation'].value;
+    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
+    let filteredOccupation = people.filter(function (person) {
+        if(person.occupation === occupationInput){
+            return true;
+        }
+        return false;
+    });
+
+    if(filteredOccupation.length > 0){
+        clearTableContents(tableClearArray)
+        tableClearArray = filteredOccupation
+        data = filteredOccupation;
+        generateTableContents(table, data);
+    }else{
+        console.log('Sorry, looks like there is no one with that occupation.');
+    }
+}
+
 function showSearch() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
@@ -425,6 +446,125 @@ function heightLetters2()
       return false;
       }
       }
+function multiSearch(){
+    let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
+    let genderInput = document.forms['searchBox2']['gender2'].value;
+    let heightInput = document.forms['searchBox2']['height2'].value;
+    let weightInput = document.forms['searchBox2']['weight2'].value;
+    let eyeColorInput = document.forms['searchBox2']['eyecolor2'].value;
+    let heightInt = parseInt(heightInput);
+    let weightInt = parseInt(weightInput);
+    
+    //dob search
+    if(dobInput == ""){
+       
+    }else{
+        let filteredDOB = people.filter(function(person){
+            if(person.dob === dobInput){
+                return true;
+            }
+            return false;
+        });
+        if(filteredDOB.length > 0){
+            filteredDOB.push(dobArray);
+        }else{
+            console.log('Sorry, looks like there is no one with that date of birth.');
+        }
+    }
+
+    //gender search
+    if(genderInput == ""){
+       
+    }else{
+        let filteredGender = people.filter(function(person){
+            if(person.gender === genderInput){
+                return true;
+            }
+            return false;
+        });
+        if(filteredGender.length > 0){
+            filteredGender.push(genderArray);
+        }else{
+            console.log('Sorry, looks like there is no one with gender.');
+        }
+    }
+
+    //height search
+    if(heightInt == ""){
+       
+    }else{
+       
+        let filteredHeight = people.filter(function(person){
+            if(person.height === heightInt){
+                return true;
+            }
+            return false;
+        });
+        if(filteredHeight.length > 0){
+            filteredHeight.push(heightArray);
+        }else{
+            console.log('Sorry, looks like there is no one with that height.');
+        }
+    }
+
+    //weight search
+    if(weightInt == ""){
+       
+    }else{
+        let filteredWeight = people.filter(function(person){
+            if(person.weight === weightInt){
+                return true;
+            }
+            return false;
+        });
+        if(filteredWeight.length > 0){
+            filteredWeight.push(weightArray);
+        }else{
+            console.log('Sorry, looks like there is no one with that weight.');
+        }
+    }
+
+    //eye color search
+    if(eyeColorInput == ""){
+       
+    }else{
+        let filteredEyeColor = people.filter(function(person){
+            if(person.eyecolor === eyeColorInput){
+                return true;
+            }
+            return false;
+        });
+        if(filteredEyeColor.length > 0){
+            filteredEyeColor.push(eyecolorArray);
+        }else{
+            console.log('Sorry, looks like there is no one with that eye color.'); 
+        }
+    }
+//occupation search
+    if(occupationInput == ""){
+       
+    }else{
+        let filteredEyeColor = people.filter(function(person){
+            if(person.eyecolor === eyeColorInput){
+                return true;
+            }
+            return false;
+        });
+        if(filteredEyeColor.length > 0){
+            filteredEyeColor.push(eyecolorArray);
+        }else{
+            console.log('Sorry, looks like there is no one with that eye color.'); 
+        }
+    }
+
+let dobArray = [];
+let genderArray = [];
+let weightArray = [];
+let heightArray = [];
+let occupationArray = [];
+let eyecolorArray = [];
+
+
         function clearTableContents(){
         let tableclear = document.querySelector('table');
         let counter = 0
@@ -433,4 +573,5 @@ function heightLetters2()
         counter++;
         }
 }
-let tableClearArray = people
+}
+let tableClearArray = people;
