@@ -575,3 +575,8 @@ let eyecolorArray = [];
 }
 }
 let tableClearArray = people;
+let descendantArray = [];
+
+function displayDescendants(){
+    
+}
