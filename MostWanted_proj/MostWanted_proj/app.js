@@ -461,6 +461,7 @@ function heightLetters2()
         let heightArray = [];
         let occupationArray = [];
         let eyecolorArray = [];
+        
 function multiSearch(){
     let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
     let genderInput = document.forms['searchBox2']['gender2'].value;
@@ -546,7 +547,7 @@ function multiSearch(){
        
     }else{
         let filteredEyeColor = people.filter(function(person){
-            if(person.eyecolor === eyeColorInput){
+            if(person.eyeColor === eyeColorInput){
                 return true;
             }
             return false;
@@ -584,12 +585,13 @@ function multiSearch(){
     
         return a;
     };
-    finalArray =[];
-    finalArray.concat(genderArray, weightArray, heightArray, occupationArray, eyecolorArray).unique();
-    if(finalArray.length > 0){
+    let finalArray =[];
+    finalArray = finalArray.concat(genderArray, weightArray, heightArray, occupationArray, eyecolorArray).unique();
+    var merged = [].concat.apply([], finalArray)
+    if(merged.length > 0){
         clearTableContents(tableClearArray)
-        tableClearArray = finalArray;
-        data = finalArray;
+        tableClearArray = merged;
+        data = merged;
         generateTableContents(table, data);
 
     }
