@@ -446,9 +446,26 @@ function heightLetters2()
       return false;
       }
       }
+
+      function clearTableContents(){
+        let tableclear = document.querySelector('table');
+        let counter = 0
+        while(counter < tableClearArray.length){
+        tableclear.deleteRow(1)
+        counter++;
+        }
+    }
+        let dobArray = [];
+        let genderArray = [];
+        let weightArray = [];
+        let heightArray = [];
+        let occupationArray = [];
+        let eyecolorArray = [];
+        
 function multiSearch(){
     let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
     let genderInput = document.forms['searchBox2']['gender2'].value;
+    let occupationInput= document.forms['searchBox2']['occupation2'].value;
     let heightInput = document.forms['searchBox2']['height2'].value;
     let weightInput = document.forms['searchBox2']['weight2'].value;
     let eyeColorInput = document.forms['searchBox2']['eyecolor2'].value;
@@ -466,7 +483,7 @@ function multiSearch(){
             return false;
         });
         if(filteredDOB.length > 0){
-            filteredDOB.push(dobArray);
+            dobArray.push(filteredDOB);
         }else{
             console.log('Sorry, looks like there is no one with that date of birth.');
         }
@@ -478,19 +495,20 @@ function multiSearch(){
     }else{
         let filteredGender = people.filter(function(person){
             if(person.gender === genderInput){
+                
                 return true;
             }
             return false;
         });
         if(filteredGender.length > 0){
-            filteredGender.push(genderArray);
+            genderArray.push(filteredGender);
         }else{
             console.log('Sorry, looks like there is no one with gender.');
         }
     }
 
     //height search
-    if(heightInt == ""){
+    if(heightInt == NaN){
        
     }else{
        
@@ -501,14 +519,14 @@ function multiSearch(){
             return false;
         });
         if(filteredHeight.length > 0){
-            filteredHeight.push(heightArray);
+            heightArray.push(filteredHeight);
         }else{
             console.log('Sorry, looks like there is no one with that height.');
         }
     }
 
     //weight search
-    if(weightInt == ""){
+    if(weightInt == NaN){
        
     }else{
         let filteredWeight = people.filter(function(person){
@@ -518,7 +536,7 @@ function multiSearch(){
             return false;
         });
         if(filteredWeight.length > 0){
-            filteredWeight.push(weightArray);
+            weightArray.push(filteredWeight);
         }else{
             console.log('Sorry, looks like there is no one with that weight.');
         }
@@ -529,13 +547,13 @@ function multiSearch(){
        
     }else{
         let filteredEyeColor = people.filter(function(person){
-            if(person.eyecolor === eyeColorInput){
+            if(person.eyeColor === eyeColorInput){
                 return true;
             }
             return false;
         });
         if(filteredEyeColor.length > 0){
-            filteredEyeColor.push(eyecolorArray);
+            eyecolorArray.push(filteredEyeColor);
         }else{
             console.log('Sorry, looks like there is no one with that eye color.'); 
         }
@@ -551,28 +569,33 @@ function multiSearch(){
             return false;
         });
         if(filteredOccupation.length > 0){
-            filteredOccupation.push(occupationArray);
+            occupationArray.push(filteredOccupation);
         }else{
             console.log('Sorry, looks like there is no one with that eye color.'); 
         }
     }
-
-let dobArray = [];
-let genderArray = [];
-let weightArray = [];
-let heightArray = [];
-let occupationArray = [];
-let eyecolorArray = [];
-
-
-        function clearTableContents(){
-        let tableclear = document.querySelector('table');
-        let counter = 0
-        while(counter < tableClearArray.length){
-        tableclear.deleteRow(1)
-        counter++;
+    Array.prototype.unique = function() {
+        var a = this.concat();
+        for(var i=0; i<a.length; ++i) {
+            for(var j=i+1; j<a.length; ++j) {
+                if(a[i] === a[j])
+                    a.splice(j--, 1);
+            }
         }
-}
+    
+        return a;
+    };
+    let finalArray =[];
+    finalArray = finalArray.concat(genderArray, weightArray, heightArray, occupationArray, eyecolorArray).unique();
+    var merged = [].concat.apply([], finalArray)
+    if(merged.length > 0){
+        clearTableContents(tableClearArray)
+        tableClearArray = merged;
+        data = merged;
+        generateTableContents(table, data);
+
+    }
+
 }
 let tableClearArray = people;
 let descendantArray = [];
