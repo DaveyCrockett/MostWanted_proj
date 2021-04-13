@@ -297,7 +297,155 @@ function showSearch() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
 
+function fnameLetters()
+      { 
+    let inputtxt = document.form1.fname;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
 
+function lnameLetters()
+      { 
+    let inputtxt = document.form1.lname;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+function heightLetters()
+      { 
+    let inputtxt = document.form1.height;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+    function weightLetters()
+      { 
+    let inputtxt = document.form1.weight;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+      function eyeColorLetters()
+      { 
+    let inputtxt = document.form1.eyeColor;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+      function occupationLetters()
+      { 
+    let inputtxt = document.form1.occupation;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+function heightLetters2()
+      { 
+    let inputtxt = document.form2.height2;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+    function weightLetters2()
+      { 
+    let inputtxt = document.form2.weight2;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+      function eyeColorLetters2()
+      { 
+    let inputtxt = document.form2.eyeColor2;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
+
+      function occupationLetters2()
+      { 
+    let inputtxt = document.form2.occupation2;
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+      }
 function multiSearch(){
     let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
     let genderInput = document.forms['searchBox2']['gender2'].value;
@@ -425,6 +573,5 @@ let eyecolorArray = [];
         counter++;
         }
 }
-let tableClearArray = people
-
-//my committ didnt work as intended, committing again to make sure its all good
+}
+let tableClearArray = people;
