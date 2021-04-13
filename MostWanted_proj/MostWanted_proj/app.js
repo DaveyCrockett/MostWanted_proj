@@ -461,7 +461,6 @@ function heightLetters2()
         let heightArray = [];
         let occupationArray = [];
         let eyecolorArray = [];
-        let finalArray = []
 function multiSearch(){
     let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
     let genderInput = document.forms['searchBox2']['gender2'].value;
@@ -508,7 +507,7 @@ function multiSearch(){
     }
 
     //height search
-    if(heightInt == !NaN){
+    if(heightInt == NaN){
        
     }else{
        
@@ -526,7 +525,7 @@ function multiSearch(){
     }
 
     //weight search
-    if(weightInt == !NaN){
+    if(weightInt == NaN){
        
     }else{
         let filteredWeight = people.filter(function(person){
@@ -585,7 +584,8 @@ function multiSearch(){
     
         return a;
     };
-    let finalArray = dobArray.concat(genderArray, weightArray, heightArray, occupationArray, eyecolorArray).unique();
+    finalArray =[];
+    finalArray.concat(genderArray, weightArray, heightArray, occupationArray, eyecolorArray).unique();
     if(finalArray.length > 0){
         clearTableContents(tableClearArray)
         tableClearArray = finalArray;
