@@ -429,3 +429,5 @@ function multiSearch(){
         }
 }
 let tableClearArray = people
+
+//my committ didnt work as intended, committing again to make sure its all good
