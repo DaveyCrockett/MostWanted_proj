@@ -461,6 +461,7 @@ function heightLetters2()
         let heightArray = [];
         let occupationArray = [];
         let eyecolorArray = [];
+        let finalArray = []
 function multiSearch(){
     let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
     let genderInput = document.forms['searchBox2']['gender2'].value;
@@ -507,7 +508,7 @@ function multiSearch(){
     }
 
     //height search
-    if(heightInt == ""){
+    if(heightInt == !NaN){
        
     }else{
        
@@ -525,7 +526,7 @@ function multiSearch(){
     }
 
     //weight search
-    if(weightInt == ""){
+    if(weightInt == !NaN){
        
     }else{
         let filteredWeight = people.filter(function(person){
@@ -573,9 +574,25 @@ function multiSearch(){
             console.log('Sorry, looks like there is no one with that eye color.'); 
         }
     }
+    Array.prototype.unique = function() {
+        var a = this.concat();
+        for(var i=0; i<a.length; ++i) {
+            for(var j=i+1; j<a.length; ++j) {
+                if(a[i] === a[j])
+                    a.splice(j--, 1);
+            }
+        }
+    
+        return a;
+    };
+    let finalArray = dobArray.concat(genderArray, weightArray, heightArray, occupationArray, eyecolorArray).unique();
+    if(finalArray.length > 0){
+        clearTableContents(tableClearArray)
+        tableClearArray = finalArray;
+        data = finalArray;
+        generateTableContents(table, data);
 
-
-
+    }
 
 }
 let tableClearArray = people
