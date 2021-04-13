@@ -5,6 +5,7 @@ function searchByFirstName(){
     let firstNameInput = document.forms['searchBox']['firstName'].value;
     // "people" is coming from the data.js file. We have access to it within this JavaScript file.
     let filteredPeople = people.filter(function (person) {
+        firstNameInput = firstNameInput.charAt(0).toUpperCase() + firstNameInput.slice(1);
         if(person.firstName === firstNameInput){
             return true;
         }
@@ -123,6 +124,7 @@ function searchByLastName(){
     let lastNameInput = document.forms['searchBox']['lastName'].value;
     // "people" is coming from the data.js file. We have access to it within this JavaScript file.
     let filteredPeople = people.filter(function (person) {
+        lastNameInput = lastNameInput.charAt(0).toUpperCase() + lastNameInput.slice(1);
         if(person.lastName === lastNameInput){
             return true;
         }
@@ -131,9 +133,11 @@ function searchByLastName(){
     
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredPeople.length > 0){
-        console.log(filteredPeople);
-        data = filterPeople;
+        clearTableContents(tableClearArray)
+        tableClearArray = filteredPeople
+        data = filteredPeople;
         generateTableContents(table, data);
+
     }else{
         console.log('Sorry, looks like there is no one with that last name.');
     }
@@ -153,10 +157,11 @@ function searchByGender(){
         }
 });
     if(filteredGender.length > 0){
-        console.log(filteredGender);
-        data = filteredGender;
-        generateTableContents(table, data);
-      
+    clearTableContents(tableClearArray)
+    tableClearArray = filteredGender
+    data = filteredGender;
+    generateTableContents(table, data);
+
     }else{
         console.log('Sorry, looks like there is no one with that gender.');
     }
@@ -183,7 +188,8 @@ function searchByDOB(){
     
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredDob.length > 0){
-        console.log(filteredDob);
+        clearTableContents(tableClearArray)
+        tableClearArray = filteredDob
         data = filteredDob;
         generateTableContents(table, data);
     }else{
@@ -211,7 +217,8 @@ function searchByHeight(){
     
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredHeight.length > 0){
-        console.log(filteredHeight);
+        clearTableContents(tableClearArray)
+        tableClearArray = filteredHeight
         data = filteredHeight;
         generateTableContents(table, data);
     }else{
@@ -256,7 +263,8 @@ function searchByEyeColor(){
     
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredEcolor.length > 0){
-        console.log(filteredEcolor);
+        clearTableContents(tableClearArray)
+        tableClearArray = filteredEcolor
         data = filteredEcolor;
         generateTableContents(table, data);
     }else{
@@ -267,57 +275,7 @@ function searchByEyeColor(){
 function showSearch() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
-//parentsMatch need some work but its on its way.
 
-function MatchMaking(){
-    let parentId = people.map(item => item.parents);
-    let mergeId = [].concat.apply([], parentId);
-  
-    let filteredParents = people.filter(function (person) {
-       
-             for(let i = 0; i < mergeId.length; i ++){
-                if(person.id === mergeId[i]){
-                    return person.firstName, person.lastName;
-                }else{
-                    console.log("No Match");
-                }  
-             } 
-             
-    });
-    
-    if(filteredParents.length > 0){
-        console.log(filteredParents);
-        replaceId(filteredParents);
-    }else{
-        console.log('Sorry, looks like there is no one with that eye color.');
-    }           
-    
-
-    
-    }
-MatchMaking();
-
-function replaceId(parentNames){
-    let j = 0;
-   let filteredParents = people.filter(function(person){
-       let parentId = person.parents;
-    for(let i = 0; i < parentId.length; i++){
-        let index = parentId.indexOf(parentId[i]);
-    if (~index) {
-        
-            if(parentId[i] === person.parents[i]){
-              person.parents[i] = parentNames[j].firstName + " " + parentNames[j].lastName;
-               j++;
-            }
-            
-    }
-   
-    }
-    
-   });
-    console.log(filteredParents);
-    
-}
 
 function multiSearch(){
     let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;

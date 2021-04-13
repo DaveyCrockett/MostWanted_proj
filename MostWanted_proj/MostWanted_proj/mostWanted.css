@@ -1,59 +1,65 @@
 /* Dropdown Button */
 .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* Dropdown button on hover & focus */
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #3e8e41;
-  }
-  
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f6f6f6;
-    min-width: 460px;
-    border: 1px solid #ddd;
-    z-index: 1;
-  }
-  
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-  .show {display:block;}
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
 
-  #searchBox {
-    display: inline;
-    float: left;
-    width: 48%;
-  }
+/* Dropdown button on hover & focus */
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #3e8e41;
+}
 
-  #searchBox2 {
-    display: inline;
-    float: left;
-    width: 48%;
-  }
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-  tr:nth-child(even) {
-    background-color: #a0c1f7
-  }
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 460px;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
 
-  tr:nth-child(odd) {
-    background-color: #00587b;
-    color: #c2c2c2;
-  }
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display: block;
+}
 
-  table {
-    border: black;
-  }
+#searchBox {
+  display: inline;
+  float: left;
+  width: 48%;
+}
+
+#searchBox2 {
+  display: inline;
+  float: left;
+  width: 48%;
+}
+
+tr:nth-child(even) {
+  background-color: #a0c1f7;
+}
+
+tr:nth-child(odd) {
+  background-color: #00587b;
+  color: #c2c2c2;
+}
+
+table {
+  border: black;
+}
+table th {
+  padding-right: 80px;
+  padding-top: 20px;
+}
