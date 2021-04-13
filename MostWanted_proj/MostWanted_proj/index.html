@@ -5,8 +5,7 @@
     <link rel="stylesheet" href="mostWanted.css">
     <title>devCodeCamp &middot; Most Wanted</title>
   </head>
-  <body onload="generateTableContents(table, data);">
-    <table id="changeTable">
+    <table>
 
     </table>
     <div class="dropdown">
@@ -24,7 +23,7 @@
             <br>
             <label for="gender">Search by Gender</label>
             <select name="gender" id="gender">
-              <option value="select">Select</option>
+              <option value="default">Select</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -38,15 +37,15 @@
           </form>
           <form id="searchBox2">
             <h2>Multiple Search:</h2>
-            <input type="text" id="height2" placeholder="Search by height">
-            <input type="text" id="weight2" placeholder="Search by weight">
-            <input type="text" id="eyecolor2" placeholder="Search by eye color">
-            <input type="text" id="occupation2" placeholder="Search by occupation">
+            <input type="text" name="height2" id="height2" placeholder="Search by height">
+            <input type="text" name="weight2" id="weight2" placeholder="Search by weight">
+            <input type="text" name="eyeColor2" id="eyecolor2" placeholder="Search by eye color">
+            <input type="text" name="occupation2" id="occupation2" placeholder="Search by occupation">
             <label for="gender2">Search by Gender</label>
             <select name="gender2" id="gender2">
-              <option value="Select">Select</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
             </select>
             <br>
             <br>
@@ -54,12 +53,12 @@
             <input type="date" id="dateOfBirth2">
             <br>
             <br>
-            <button type="button" onclick="multiSearch()">Submit</button>
+            <input type="button" id="search" value="search"/>
           </form>
           <button type="button" onclick="window.location.reload()">Clear</button>
           </div>
         </div>
-        
+        <div id="output"></div>
     <script src="data.js"></script>
     <script src="app.js"></script>
   </body>

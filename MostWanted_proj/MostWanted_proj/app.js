@@ -1,6 +1,38 @@
 'use strict';
 //First name search
+function searchByFirstName(){
+    // Grabbing the values from our nameForm form and inputs.
+    let firstNameInput = document.forms['searchBox']['firstName'].value;
+    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
+    let filteredPeople = people.filter(function (person) {
+        if(person.firstName === firstNameInput){
+            return true;
+        }
+        return false;
+    });
+    
+    // Rather than console logging, you need to append the filteredPeople to a table.
+    if(filteredPeople.length > 0){
+        clearTableContents(tableClearArray)
+        tableClearArray = filteredPeople
+        data = filteredPeople;
+        generateTableContents(table, data);
 
+    }else{
+        console.log('Sorry, looks like there is no one with that first name.');
+    }
+}
+
+function generateTableHead(){
+    let thead = table.createTHead();
+    let row = thead.insertRow();
+    for (let key of data){
+        let th = document.createElement("th");
+        let text = document.createTextNode(key);
+        th.appendChild(text)
+        row.appendChild(th);
+    }
+}
 function generateTableContents(){
 for (let person of data){
 let row = table.insertRow();
@@ -83,40 +115,8 @@ let table = document.querySelector("table");
 let data = Object.keys(personTable[0]);
 generateTableHead(table, data);
 data = people
+generateTableContents(table, data);
 
-
-function searchByFirstName(){
-    // Grabbing the values from our nameForm form and inputs.
-    let firstNameInput = document.forms['searchBox']['firstName'].value;
-    // "people" is coming from the data.js file. We have access to it within this JavaScript file.
-    let filteredPeople = people.filter(function (person) {
-        if(person.firstName === firstNameInput){
-            return true;
-        }
-        return false;
-    });
-    
-    // Rather than console logging, you need to append the filteredPeople to a table.
-    if(filteredPeople.length > 0){
-        console.log(filteredPeople);
-        data = filteredPeople;
-        generateTableContents(table, data);
-        
-    }else{
-        console.log('Sorry, looks like there is no one with that first name.');
-    }
-}
-
-function generateTableHead(){
-    let thead = table.createTHead();
-    let row = thead.insertRow();
-    for (let key of data){
-        let th = document.createElement("th");
-        let text = document.createTextNode(key);
-        th.appendChild(text)
-        row.appendChild(th);
-    }
-}
 //Last Name Search
 function searchByLastName(){
     // Grabbing the values from our nameForm form and inputs.
@@ -268,150 +268,6 @@ function showSearch() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
 
-function multiSearch(){
-    let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
-    let genderInput = document.forms['searchBox2']['gender2'].value;
-    let heightInput = document.forms['searchBox2']['height2'].value;
-    let weightInput = document.forms['searchBox2']['weight2'].value;
-    let eyeColorInput = document.forms['searchBox2']['eyecolor2'].value;
-    let heightInt = parseInt(heightInput);
-    let weightInt = parseInt(weightInput);
-    if(dobInput == ""){
-       
-    }else{
-        let filteredDOB = people.filter(function(person){
-            if(person.dob === dobInput){
-                return true;
-            }
-            return false;
-        });
-        if(filteredDOB.length > 0){
-            console.log(filteredDOB);
-            enterTable(filteredDOB);
-        }else{
-            console.log('Sorry, looks like there is no one with that date of birth.');
-        }
-    }
-
-    if(genderInput == ""){
-       
-    }else{
-        let filteredGender = people.filter(function(person){
-            if(person.gender === genderInput){
-                return true;
-            }
-            return false;
-        });
-        if(filteredGender.length > 0){
-            console.log(filteredGender);
-            enterTable(filteredGender);
-        }else{
-            console.log('Sorry, looks like there is no one with gender.');
-        }
-    }
-
-    if(heightInt == ""){
-       
-    }else{
-       
-        let filteredHeight = people.filter(function(person){
-            if(person.height === heightInt){
-                return true;
-            }
-            return false;
-        });
-        if(filteredHeight.length > 0){
-            console.log(filteredHeight);
-            enterTable(filteredHeight);
-        }else{
-            console.log('Sorry, looks like there is no one with that height.');
-        }
-    }
-
-    if(weightInt == ""){
-       
-    }else{
-        let filteredWeight = people.filter(function(person){
-            if(person.weight === weightInt){
-                return true;
-            }
-            return false;
-        });
-        if(filteredWeight.length > 0){
-            console.log(filteredWeight);
-            enterTable(filteredWeight);
-        }else{
-            console.log('Sorry, looks like there is no one with that weight.');
-        }
-    }
-
-    if(eyeColorInput == ""){
-       
-    }else{
-        let filteredEyeColor = people.filter(function(person){
-            if(person.eyecolor === eyeColorInput){
-                return true;
-            }
-            return false;
-        });
-        if(filteredEyeColor.length > 0){
-            console.log(filteredEyeColor);
-            enterTable(filteredEyeColor);
-        }else{
-            console.log('Sorry, looks like there is no one with that eye color.'); 
-        }
-    }
-    if(genderInput == "" && dobInput == ""){
-       
-    }else{
-        let filteredPeople = people.filter(function(person){
-            if(person.gender === genderInput && person.dob === dobInput){
-                return true;
-            }
-            return false;
-        });
-        if(filteredPeople.length > 0){
-            console.log(filteredPeople);
-            enterTable(filteredPeople);
-        }else{
-            console.log('Sorry, looks like there is no one with that date of birth.');
-        }
-    }
-    if(genderInput == "" && heightInput == ""){
-       
-    }else{
-        let filteredPeople = people.filter(function(person){
-            if(person.gender === genderInput && person.height === heightInt){
-                return true;
-            }
-            return false;
-        });
-        if(filteredPeople.length > 0){
-            console.log(filteredPeople);
-            enterTable(filteredPeople);
-        }else{
-            console.log('Sorry, looks like there is no one with that date of birth.');
-        }
-    }
-    if(genderInput == "" && weightInput == ""){
-       
-    }else{
-        let filteredPeople = people.filter(function(person){
-            if(person.gender === genderInput && person.weight === weightInt){
-                return true;
-            }
-            return false;
-        });
-        if(filteredPeople.length > 0){
-            console.log(filteredPeople);
-            enterTable(filteredPeople);
-        }else{
-            console.log('Sorry, looks like there is no one with that date of birth.');
-        }
-    }
-    
-} 
-
 function fnameLetters()
       { 
     let inputtxt = document.form1.fname;
@@ -517,42 +373,12 @@ function heightLetters()
       }
       }
 
-      
-      const filterBy = (prop, value) => people =>
-        value === ''
-          ? people
-          : movies.filter(people => 
-            Array.isArray(person[prop])
-              ? people[prop].some(x => x === value)
-              : people[prop] === value
-          )
-          
-      const peopleToListItems = people => 
-        people.map(person => (
-          `<div class="person">
-            <h4>${person.firstName}</h4>
-            <p>${person.lastName.join()}</p>
-            <span>${person.height}</span>
-          </div>`
-        )).join('')
-      
-      const filterPeople = ({ firstName, lastName, height }) => people =>
-        [people]
-          .map(filterBy('firstName', firstName))
-          .map(filterBy('lastName', lastName))
-          .map(filterBy('actors', actors))
-          .map(moviesToListItems)
-          .pop()
-      
-      const el = selector => document.querySelector(selector)
-      const search = el('#search')
-      const output = el('#output')
-      
-      const searchMovies = movies => e => {
-        output.innerHTML = filterMovies({
-          title: el('#title').value,
-          actors: el('#actors').value,
-          genre: el('#genre').value
-        })(movies)
-      }
-      search.addEventListener('click', searchMovies(movies))
+        function clearTableContents(){
+        let tableclear = document.querySelector('table');
+        let counter = 0
+        while(counter < tableClearArray.length){
+        tableclear.deleteRow(1)
+        counter++;
+        }
+}
+let tableClearArray = people
