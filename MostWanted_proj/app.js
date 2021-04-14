@@ -472,13 +472,19 @@ function multiSearch(){
     let eyeColorInput = document.forms['searchBox2']['eyecolor2'].value;
     let heightInt = parseInt(heightInput);
     let weightInt = parseInt(weightInput);
+    let DobFormat = new Date(dobInput);
+    let DobFormatDay = addDays(dobInput, 1);
+    let dd = DobFormatDay.getDate();
+    let mm = DobFormatDay.getMonth() +1; 
+    let yyyy = DobFormatDay.getFullYear();
+    DobFormat = mm+'/'+dd+'/'+yyyy;
     
     //dob search
-    if(dobInput == ""){
+    if(DobFormat == ""){
        
     }else{
         let filteredDOB = people.filter(function(person){
-            if(person.dob === dobInput){
+            if(person.dob === DobFormat){
                 return true;
             }
             return false;
@@ -594,7 +600,7 @@ function multiSearch(){
         return a;
     }
     let finalArray =[];
-    finalArray = finalArray.concat(genderArray, weightArray, heightArray, occupationArray, eyecolorArray);
+    finalArray = finalArray.concat(genderArray, weightArray, heightArray, occupationArray, eyecolorArray, dobArray);
     var merged = [].concat.apply([], finalArray).unique();
     add(merged);
 
@@ -620,7 +626,7 @@ function add(merging) {
     let eyeColorInput = document.forms['searchBox2']['eyecolor2'].value;
     let heightInt = parseInt(heightInput);
     let weightInt = parseInt(weightInput);
-    let dobArray = [];
+
     let genderArray = [];
     let weightArray = [];
     let heightArray = [];
@@ -654,16 +660,8 @@ function add(merging) {
 
       const occupationFilter = merging.reduce((result, item) => {
         if (item.occupation === occupationInput) { occupationArray.push(item);result = item;  }else if (item.occupation === null){  }
-      
         return result
       }, null)
-
-      const dobFilter = merging.reduce((result, item) => {
-        if (item.dob === dobInput) { dobArray.push(item);result = item;  }else if (item.dob === null){  }
-      
-        return result
-      }, null)
-
       finalArray = finalArray.concat(genderArray, weightArray, heightArray, occupationArray, eyecolorArray);
       
       const filtered = finalArray.filter((v, i) => finalArray.indexOf(v) !== i)
@@ -671,4 +669,4 @@ function add(merging) {
 
     return Array.from(unique);
         
-}
+    }
