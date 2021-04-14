@@ -601,6 +601,7 @@ function multiSearch(){
 
 }
 
+<<<<<<< HEAD:MostWanted_proj/MostWanted_proj/app.js
 
 function add(merging) {
     let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
@@ -661,4 +662,18 @@ function add(merging) {
 
     return Array.from(unique);
         
+=======
+function displayDescendants(){
+    for (let key of people){
+        if (key.firstName){
+            if (key['parents'] === [] ){
+        } else {
+            descendantArray.push(key);
+            console.log(descendantArray)
+        }
+        }
+    }
+>>>>>>> ea4e665aabbc27feee0ee46e9e6b320d18fe7332:MostWanted_proj/app.js
 }
+
+displayDescendants();
