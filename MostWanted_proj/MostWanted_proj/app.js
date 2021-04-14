@@ -484,6 +484,8 @@ function multiSearch(){
         });
         if(filteredDOB.length > 0){
             dobArray.push(filteredDOB);
+            dobArray = [].concat.apply([], dobArray);
+            
         }else{
             console.log('Sorry, looks like there is no one with that date of birth.');
         }
@@ -502,6 +504,7 @@ function multiSearch(){
         });
         if(filteredGender.length > 0){
             genderArray.push(filteredGender);
+            genderArray = [].concat.apply([], genderArray);
         }else{
             console.log('Sorry, looks like there is no one with gender.');
         }
@@ -520,6 +523,7 @@ function multiSearch(){
         });
         if(filteredHeight.length > 0){
             heightArray.push(filteredHeight);
+            heightArray = [].concat.apply([], heightArray);
         }else{
             console.log('Sorry, looks like there is no one with that height.');
         }
@@ -537,6 +541,7 @@ function multiSearch(){
         });
         if(filteredWeight.length > 0){
             weightArray.push(filteredWeight);
+            weightArray = [].concat.apply([], weightArray);
         }else{
             console.log('Sorry, looks like there is no one with that weight.');
         }
@@ -554,6 +559,7 @@ function multiSearch(){
         });
         if(filteredEyeColor.length > 0){
             eyecolorArray.push(filteredEyeColor);
+            eyecolorArray = [].concat.apply([], eyecolorArray);
         }else{
             console.log('Sorry, looks like there is no one with that eye color.'); 
         }
@@ -570,6 +576,7 @@ function multiSearch(){
         });
         if(filteredOccupation.length > 0){
             occupationArray.push(filteredOccupation);
+            occupationArray = [].concat.apply([], occupationArray);
         }else{
             console.log('Sorry, looks like there is no one with that eye color.'); 
         }
@@ -586,20 +593,72 @@ function multiSearch(){
         return a;
     };
     let finalArray =[];
-    finalArray = finalArray.concat(genderArray, weightArray, heightArray, occupationArray, eyecolorArray).unique();
-    var merged = [].concat.apply([], finalArray)
-    if(merged.length > 0){
-        clearTableContents(tableClearArray)
-        tableClearArray = merged;
-        data = merged;
-        generateTableContents(table, data);
+    finalArray = finalArray.concat(genderArray, weightArray, heightArray, occupationArray, eyecolorArray);
+    var merged = [].concat.apply([], finalArray).unique();
+    add(merged);
 
-    }
+    let mergeInfo = add(merged);
 
 }
-let tableClearArray = people;
-let descendantArray = [];
 
-function displayDescendants(){
-    
+
+function add(merging) {
+    let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
+    let genderInput = document.forms['searchBox2']['gender2'].value;
+    let occupationInput= document.forms['searchBox2']['occupation2'].value;
+    let heightInput = document.forms['searchBox2']['height2'].value;
+    let weightInput = document.forms['searchBox2']['weight2'].value;
+    let eyeColorInput = document.forms['searchBox2']['eyecolor2'].value;
+    let heightInt = parseInt(heightInput);
+    let weightInt = parseInt(weightInput);
+    let dobArray = [];
+    let genderArray = [];
+    let weightArray = [];
+    let heightArray = [];
+    let occupationArray = [];
+    let eyecolorArray = [];
+    let finalArray = [];
+
+    const genderFilter = merging.reduce((result, item) => {
+        if (item.gender === genderInput) { genderArray.push(item);result = item ;}else if (item.gender === null){  }
+        
+        return result
+      }, null)
+
+    const heightFilter = merging.reduce((result, item) => {
+        if (item.height === heightInt) { heightArray.push(item);result = item;   }else if (item.height === null){  }
+        return result
+    }, null)
+
+      const eyeColorFilter = merging.reduce((result, item) => {
+        if (item.eyeColor === eyeColorInput) { eyecolorArray.push(item);result = item;  }else if (item.eyeColor === null){  }
+      
+        return result
+      }, null)
+
+      const weightFilter = merging.reduce((result, item) => {
+        if (item.weight === weightInt) { weight.push(item);result = item;  }else if (item.weight === null){  }
+      
+        return result
+      }, null)
+
+      const occupationFilter = merging.reduce((result, item) => {
+        if (item.occupation === occupationInput) { occupationArray.push(item);result = item;  }else if (item.occupation === null){  }
+      
+        return result
+      }, null)
+
+      const dobFilter = merging.reduce((result, item) => {
+        if (item.dob === dobInput) { dobArray.push(item);result = item;  }else if (item.dob === null){  }
+      
+        return result
+      }, null)
+
+      finalArray = finalArray.concat(genderArray, weightArray, heightArray, occupationArray, eyecolorArray);
+      
+      const filtered = finalArray.filter((v, i) => finalArray.indexOf(v) !== i)
+    const unique = new Set(filtered)
+
+    return Array.from(unique);
+        
 }
