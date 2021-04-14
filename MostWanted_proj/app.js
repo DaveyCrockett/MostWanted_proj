@@ -464,7 +464,6 @@ function heightLetters2()
         let eyecolorArray = [];
         
 function multiSearch(){
-    let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
     let genderInput = document.forms['searchBox2']['gender2'].value;
     let occupationInput= document.forms['searchBox2']['occupation2'].value;
     let heightInput = document.forms['searchBox2']['height2'].value;
@@ -472,31 +471,7 @@ function multiSearch(){
     let eyeColorInput = document.forms['searchBox2']['eyecolor2'].value;
     let heightInt = parseInt(heightInput);
     let weightInt = parseInt(weightInput);
-    let DobFormat = new Date(dobInput);
-    let DobFormatDay = addDays(dobInput, 1);
-    let dd = DobFormatDay.getDate();
-    let mm = DobFormatDay.getMonth() +1; 
-    let yyyy = DobFormatDay.getFullYear();
-    DobFormat = mm+'/'+dd+'/'+yyyy;
     
-    //dob search
-    if(DobFormat == ""){
-       
-    }else{
-        let filteredDOB = people.filter(function(person){
-            if(person.dob === DobFormat){
-                return true;
-            }
-            return false;
-        });
-        if(filteredDOB.length > 0){
-            dobArray.push(filteredDOB);
-            dobArray = [].concat.apply([], dobArray);
-            
-        }else{
-            console.log('Sorry, looks like there is no one with that date of birth.');
-        }
-    }
 
     //gender search
     if(genderInput == ""){
@@ -618,7 +593,6 @@ function multiSearch(){
 
 
 function add(merging) {
-    let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
     let genderInput = document.forms['searchBox2']['gender2'].value;
     let occupationInput= document.forms['searchBox2']['occupation2'].value;
     let heightInput = document.forms['searchBox2']['height2'].value;
