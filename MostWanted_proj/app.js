@@ -1,5 +1,6 @@
 'use strict';
 //First name search
+let tableClearArray = people
 function searchByFirstName(){
     // Grabbing the values from our nameForm form and inputs.
     let firstNameInput = document.forms['searchBox']['firstName'].value;
@@ -390,14 +391,14 @@ function heightLetters()
 function heightLetters2()
       { 
     let inputtxt = document.form2.height2;
-      var letters = /^[A-Za-z]+$/;
+      var letters = /^[0-9]+$/;
       if(inputtxt.value.match(letters))
       {
       return true;
       }
       else
       {
-      alert('Please input alphabet characters only');
+      alert('Please input numerical characters only');
       return false;
       }
       }
@@ -405,14 +406,14 @@ function heightLetters2()
     function weightLetters2()
       { 
     let inputtxt = document.form2.weight2;
-      var letters = /^[A-Za-z]+$/;
+      var letters =/^[0-9]+$/;
       if(inputtxt.value.match(letters))
       {
       return true;
       }
       else
       {
-      alert('Please input alphabet characters only');
+      alert('Please input numerical characters only');
       return false;
       }
       }
@@ -591,17 +592,24 @@ function multiSearch(){
         }
     
         return a;
-    };
+    }
     let finalArray =[];
     finalArray = finalArray.concat(genderArray, weightArray, heightArray, occupationArray, eyecolorArray);
     var merged = [].concat.apply([], finalArray).unique();
     add(merged);
 
     let mergeInfo = add(merged);
+    if(mergeInfo.length > 0){
+        clearTableContents(tableClearArray)
+        tableClearArray = mergeInfo
+        data = mergeInfo;
+        generateTableContents(table, data);
+    }else{
+        console.log('Sorry, looks like there is no one with those inputs.');
+    }
 
 }
 
-<<<<<<< HEAD:MostWanted_proj/MostWanted_proj/app.js
 
 function add(merging) {
     let dobInput = document.forms['searchBox2']['dateOfBirth2'].value;
@@ -619,6 +627,7 @@ function add(merging) {
     let occupationArray = [];
     let eyecolorArray = [];
     let finalArray = [];
+   
 
     const genderFilter = merging.reduce((result, item) => {
         if (item.gender === genderInput) { genderArray.push(item);result = item ;}else if (item.gender === null){  }
@@ -662,18 +671,4 @@ function add(merging) {
 
     return Array.from(unique);
         
-=======
-function displayDescendants(){
-    for (let key of people){
-        if (key.firstName){
-            if (key['parents'] === [] ){
-        } else {
-            descendantArray.push(key);
-            console.log(descendantArray)
-        }
-        }
-    }
->>>>>>> ea4e665aabbc27feee0ee46e9e6b320d18fe7332:MostWanted_proj/app.js
 }
-
-displayDescendants();
