@@ -29,9 +29,10 @@ function generateTableHead(){
     let thead = table.createTHead();
     let row = thead.insertRow();
     for (let key of data){
+        console.log(key)
         let th = document.createElement("th");
         let text = document.createTextNode(key);
-        th.appendChild(text)
+        th.appendChild(text);
         row.appendChild(th);
     }
 }
@@ -101,13 +102,23 @@ let row = table.insertRow();
         if(spouseFound == null){
         spouseFound = 'N/A'
         }
-        let spouseFiltered =people.filter(function(person){
+        let spouseFiltered = people.filter(function(person){
         if(person.id === spouseFound)
         spouseFound = person.firstName + ' ' + person.lastName
         })
         let cell = row.insertCell();
         let text = document.createTextNode(spouseFound);
         cell.appendChild(text)
+        
+        let specialDescendants = getDescendants(person, people);
+        cell = row.insertCell();
+        let cycleDescenants = cycleDescenantsNames(specialDescendants)
+        
+        if(cycleDescenants === undefined){
+            cycleDescenants = 'None'
+            }
+        text = document.createTextNode(cycleDescenants);
+        cell.appendChild(text);
    }
   }
  }
@@ -118,6 +129,7 @@ let data = Object.keys(personTable[0]);
 generateTableHead(table, data);
 data = people
 generateTableContents(table, data);
+
 
 //Last Name Search
 function searchByLastName(){
@@ -644,3 +656,22 @@ function add(merging) {
     return Array.from(unique);
         
     }
+
+
+function getDescendants(person, people, descendants = []){
+    people.forEach(function(el){
+        if(el.parents.includes(person.id)){
+            descendants.push(el);
+            getDescendants(el, people, descendants)
+        }
+    })
+    return descendants;
+}
+
+function cycleDescenantsNames(specialDescendants, descendantName = []){
+        specialDescendants.forEach(function (arrayItem){
+            descendantName.push( arrayItem.firstName + " " + arrayItem.lastName);
+        })   
+        return descendantName; 
+}
+
