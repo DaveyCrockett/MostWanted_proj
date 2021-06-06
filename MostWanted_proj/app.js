@@ -112,12 +112,11 @@ let row = table.insertRow();
         
         let specialDescendants = getDescendants(person, people);
         cell = row.insertCell();
-        let cycleDescenants = cycleDescenantsNames(specialDescendants)
-        
-        if(cycleDescenants === undefined){
-            cycleDescenants = 'None'
+        let cycleDescedants = cycleDescenantsNames(specialDescendants)
+        if(cycleDescedants === undefined){
+            cycleDescedants = 'None'
             }
-        text = document.createTextNode(cycleDescenants);
+        text = document.createTextNode(cycleDescedants);
         cell.appendChild(text);
    }
   }
